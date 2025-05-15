@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Scope;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Component;
-import ru.apzakharov.demo.webraise.application.exception.AddSubscriptionException;
+import ru.apzakharov.demo.webraise.application.exception.subscription.AddSubscriptionException;
 import ru.apzakharov.demo.webraise.domian.model.Subscription;
 import ru.apzakharov.demo.webraise.domian.model.User;
 import ru.apzakharov.demo.webraise.domian.service.crud.CrudService;

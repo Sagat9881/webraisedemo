@@ -1,10 +1,21 @@
 package ru.apzakharov.demo.webraise.port;
 
-import ru.apzakharov.demo.webraise.application.annotation.MarkerInterface;
+import org.springframework.data.domain.Example;
+
+import java.io.Serializable;
+import java.util.List;
+import java.util.Optional;
 
 /**
- * representation of DRIVEN applications port
+ * representation of DRIVEN applications port with crud
  */
-@MarkerInterface
-public interface ApplicationPort {
+public interface ApplicationPort<DOMAIN, KEY extends Serializable> {
+
+    Optional<DOMAIN> get(KEY dto);
+
+    KEY create(DOMAIN key);
+
+    List<DOMAIN> findAllByExample(Example<DOMAIN> example);
+
+    void delete(KEY key);
 }
