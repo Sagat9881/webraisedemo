@@ -1,0 +1,20 @@
+services:
+  webraise:
+    container_name: webraise
+    build:
+      dockerfile: Dockerfile
+    image: webraise:latest
+    ports:
+      - 8090:8090
+    depends_on:
+      - postgres
+
+
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=webraise'
+      - 'POSTGRES_PASSWORD=webraise'
+      - 'POSTGRES_USER=webraise'
+    ports:
+      - '5432'

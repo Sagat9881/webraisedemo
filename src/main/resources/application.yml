@@ -1,0 +1,28 @@
+spring:
+  h2:
+    console:
+      enabled: true
+  main:
+    allow-circular-references: true
+  application:
+    name: webraise
+  jpa:
+    properties:
+      hibernate:
+        default_schema: webrise_demo
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: none
+  datasource:
+    url: ${DATABASE_URL:jdbc:h2:file:./build/h2db/db/webraise;DB_CLOSE_DELAY=-1}
+    username: ${DATABASE_USERNAME:webraise}
+    password: ${DATABASE_PASSWORD:webraise}
+    driverClassName: org.h2.Driver
+  liquibase:
+    change-log: db/changelog-master.xml
+springdoc:
+  swagger-ui:
+    path: /wr_demo_swagger
+

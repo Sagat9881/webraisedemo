@@ -3,7 +3,6 @@ package ru.apzakharov.demo.webraise.port.repository;
 import org.springframework.data.domain.Example;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.repository.NoRepositoryBean;
 import ru.apzakharov.demo.webraise.port.ApplicationPort;
 
@@ -14,14 +13,12 @@ import java.util.Optional;
 @NoRepositoryBean
 public interface BaseJpaRepository<ID extends Serializable, T extends EntityWithId<ID>> extends
         ApplicationPort<T, ID>,
-        QuerydslPredicateExecutor<T>,
         JpaRepository<T, ID>,
-        JpaSpecificationExecutor<T>,
-        QueryDslPredicateExecutorFixRepository<T> {
+        JpaSpecificationExecutor<T> {
 
     @Override
-    default Optional<T> get(ID userId) {
-        return this.findById(userId);
+    default Optional<T> get(ID id) {
+        return this.findById(id);
     }
 
     @Override

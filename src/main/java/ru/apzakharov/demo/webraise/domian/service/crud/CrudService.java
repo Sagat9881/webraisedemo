@@ -5,11 +5,14 @@ import ru.apzakharov.demo.webraise.port.repository.EntityWithId;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Optional;
 
 public interface CrudService<DTO, ID extends Serializable, ENTITY extends EntityWithId<ID>> {
     ID add(DTO dto);
 
     DTO get(ID id);
+
+    Optional<DTO> find(ID id);
 
     void update(DTO dto, ID id);
 
@@ -18,4 +21,5 @@ public interface CrudService<DTO, ID extends Serializable, ENTITY extends Entity
     List<DTO> getListByExample(Example<ENTITY> example);
 
     DTO getByExample(Example<ENTITY> example);
+    Optional<DTO> findByExample(Example<ENTITY> example);
 }

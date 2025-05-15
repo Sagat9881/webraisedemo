@@ -2,20 +2,21 @@ package ru.apzakharov.demo.webraise.domian.usecase.subscription;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 import ru.apzakharov.demo.webraise.domian.model.Subscription;
 import ru.apzakharov.demo.webraise.domian.model.User;
 import ru.apzakharov.demo.webraise.domian.service.crud.CrudService;
 import ru.apzakharov.demo.webraise.domian.usecase.UseCase;
-import ru.apzakharov.demo.webraise.port.repository.subscription.entity.SubscriptionEntity;
-import ru.apzakharov.demo.webraise.port.repository.user.entity.UserEntity;
+import ru.apzakharov.demo.webraise.port.repository.subscription.SubscriptionEntity;
+import ru.apzakharov.demo.webraise.port.repository.user.UserEntity;
 
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Component
-@Scope("request")
+@Scope(value = "request",proxyMode = ScopedProxyMode.TARGET_CLASS)
 @RequiredArgsConstructor
 public class DeleteSubscriptionUseCase implements UseCase {
 
