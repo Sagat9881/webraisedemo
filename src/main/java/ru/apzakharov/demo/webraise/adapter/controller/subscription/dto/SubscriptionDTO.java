@@ -8,5 +8,4 @@ import java.util.Set;
 @Data
 public class SubscriptionDTO {
     private String subscriptionName;
-    private Set<UserDTO> users;
 }

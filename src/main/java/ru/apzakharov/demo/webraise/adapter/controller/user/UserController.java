@@ -30,22 +30,20 @@ public class UserController implements ApplicationAdapter {
     @GetMapping("/{id}")
     @Operation(summary = "Получение пользователя по id", tags = "User")
     public UserDTO getUser(@PathVariable("id") UUID uuid) {
-        return mapper.toDto(
-                getUserUseCase.getUser(uuid)
-        );
+        return mapper.toDto( getUserUseCase.getUser(uuid) );
     }
 
     @PutMapping("/{id}")
     @Operation(summary = "Обновление пользователя по id", tags = "User")
     public UserDTO updateUser(@PathVariable UUID id, @RequestBody UserDTO updatedUser) {
-        updateUserUseCase.updateUser(mapper.toDomain(updatedUser), id);
+        updateUserUseCase.updateUser( mapper.toDomain(updatedUser), id );
         return updatedUser;
     }
 
     @PostMapping
     @Operation(summary = "Создание нового пользователя", tags = "User")
     public UUID createUser(@RequestBody UserDTO user) {
-        return createUserUseCase.createUser(mapper.toDomain(user));
+        return createUserUseCase.createUser( mapper.toDomain(user) );
     }
 
 

@@ -19,7 +19,7 @@
     <changeSet id="4" author="Aleksandr Zakharov">
         <createTable tableName="USERS_SUBSCRIPTIONS" schemaName="WEBRISE_DEMO">
             <column name="SUBSCRIPTION_ID" type="uuid" >
-                <constraints primaryKey="true" nullable="false"/>
+                <constraints  nullable="false"/>
             </column>
             <column name="USER_ID" type="uuid">
                 <constraints nullable="false"/>
